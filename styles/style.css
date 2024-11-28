@@ -2,13 +2,43 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    padding: 1 em;
+    padding: 1em;
+}
+
+.soccer-field div {
+    border: 1px dashed #ffffff; /* Dashed border for grid cells */
+    min-height: 70px; /* Ensure cells are large enough for dragging */
+}
+.soccer-field {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 equal columns */
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;       /* 5 equal rows */
+    gap: 1em; /* Adds space between grid items */
+    width: 100%;
+    height: 80vh; /* Fixed height */
+    background-color: #009900; /* Green background */
+    outline: 5px solid 006600;;
+    position: relative; /* Needed for positioning player elements */
+}
+
+.soccer-field div.dragover {
+    background-color: rgba(255, 255, 255, 0.3); /* Highlight cell when dragging over it */
 }
 
 /* Basic container with some spacing */
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 100%;  /* Take up full width of the grid cell */
+    height: 100%; /* Take up full height of the grid cell */
+    max-width: none; /* Override any max-width from outside styling */
+    outline: 5px solid black;
+    background-color: #ffffff; /* White background for the player box */
+    display: flex; /* Center content inside */
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: grab;
+    grid-column-start: auto;
+    grid-row-start: auto;
 }
